@@ -1,0 +1,14 @@
+Given a string, find the length of the longest substring without repeating characters.
+
+Python Code:
+
+def longest_substr(s):
+    max_counter = 0
+    save_string = ""
+    for a, x in enumerate(s):
+        for i in s[a:]:
+            if i in save_string:
+                max_counter = max(len(save_string), max_counter)
+                save_string = ""
+            save_string += i
+    return max_counter
